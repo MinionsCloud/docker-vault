@@ -14,7 +14,7 @@ docker pull minionscloud/vault:latest
 ### To run in Dev Mode
 
 ```
-docker run -d -p 80 minionscloud/vault:latest
+docker run -d -p 8200 minionscloud/vault:latest
 ```
 
 ### To run with a Configuration and Backend
@@ -24,5 +24,5 @@ Create your configuration in a volume (or straight on your host) following the d
 Then, assuming your configuration file was in /etc/vault-config/, run the following command
 
 ```
-docker run -d -p 80 -v /etc/vault-config/:/config  minionscloud/vault:latest vault server -config=/config
+docker run -d -p 8200 -v /etc/vault-config/:/config  minionscloud/vault:latest vault server -config=/config
 ```
