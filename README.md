@@ -24,5 +24,7 @@ Create your configuration in a volume (or straight on your host) following the d
 Then, assuming your configuration file was in /etc/vault-config/, run the following command
 
 ```
-docker run -d -p 8200 -v /etc/vault-config/:/config  minionscloud/vault:latest vault server -config=/config
+docker run -d -p 8200 --cap-add IPC_LOCK -v /etc/vault-config/:/config  minionscloud/vault:latest vault server -config=/config
 ```
+
+IMPORTANT: Don't forget to add the --cap-add IPC_LOCK in order to allow Vault to lock the secrets in memory and avoid swapping them to disk
